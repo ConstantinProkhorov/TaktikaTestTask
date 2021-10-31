@@ -15,18 +15,33 @@
               </e>
               <e p="EnemiesInitializer.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
-              <e p="Mover" t="Include">
+              <e p="EnemyData.cs" t="Include" />
+              <e p="Messages" t="Include">
+                <e p="EnemyKilledMessage.cs" t="Include" />
+              </e>
+              <e p="Movement" t="Include">
+                <e p="EnemyMovementData.cs" t="Include" />
                 <e p="EnemyMover.cs" t="Include" />
               </e>
             </e>
             <e p="GameSettings" t="Include">
+              <e p="DefenceTowerSettings.cs" t="Include" />
               <e p="EnemiesSpawnSettings.cs" t="Include" />
+              <e p="EnemySettings.cs" t="Include" />
+            </e>
+            <e p="Hero" t="Include">
+              <e p="DefenceTowers" t="Include">
+                <e p="DefenceTower.cs" t="Include" />
+                <e p="DefenceTowerData.cs" t="Include" />
+                <e p="DefenceTowerShooter.cs" t="Include" />
+              </e>
             </e>
             <e p="Pool" t="Include">
               <e p="Pool.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
               <e p="DisableRenderersOnAwake.cs" t="Include" />
+              <e p="Layers.cs" t="Include" />
             </e>
             <e p="WayPoints" t="Include">
               <e p="IWayPoint.cs" t="Include" />

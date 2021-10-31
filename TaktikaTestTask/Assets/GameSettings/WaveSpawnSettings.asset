@@ -15,6 +15,6 @@ MonoBehaviour:
   intervalBetweenWaves: 10
   intervalBetweenEnemies: 0.2
   additionalEnemiesPerWave: 1
-  enemyPrefab: {fileID: 6196913978438931128, guid: 29c687d4dbdd2dc4a98bd552717a1a77,
+  enemyMovementDataPrefab: {fileID: 7007737122823090432, guid: 29c687d4dbdd2dc4a98bd552717a1a77,
     type: 3}
   enemyPoolStartingSize: 32

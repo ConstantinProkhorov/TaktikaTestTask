@@ -1,50 +1,57 @@
 using System;
+using Code.TaktikaTestTask.Enemies.Messages;
+using Code.TaktikaTestTask.Enemies.Movement;
 using Code.TaktikaTestTask.WayPoints;
+using UniRx;
 using UnityEngine;
 
 namespace Code.TaktikaTestTask.Enemies
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(EnemyMovementData))]
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private float speed = 1f;
+        private int _currentHealth;
 
-        private WayPointsDistributor _wayPointsDistributor;
-
-        public IWayPoint TargetWayPoint { get; private set; }
-        public Vector3 RandomDeviation { get; private set; }
-
-        public float Speed => speed;
-
-
-        public event Action EndedMovement = delegate { };
+        public EnemyData EnemyData { get; private set; }
+        public EnemyMovementData MovementData { get; private set; }
+        
         public event Action Killed = delegate { };
 
-        private void OnDestroy()
+        private void Awake()
         {
-            EndedMovement = null;
+            MovementData = GetComponent<EnemyMovementData>();
         }
 
-        public void Initialize(WayPointsDistributor pointsDistributor, Vector3 deviation)
+        public void Initialize(EnemyData enemyData, WayPointsDistributor pointsDistributor, Vector3 deviation)
         {
-            _wayPointsDistributor = pointsDistributor;
-            RandomDeviation = deviation;
-            TargetWayPoint = _wayPointsDistributor.GetPointWithIndex(0);
+            EnemyData = enemyData;
+            _currentHealth = enemyData.Health;
+            print(enemyData);
+            MovementData.Initialize(pointsDistributor, deviation);
         }
 
-        public void SetNextPoint()
+        public void ReceiveDamage(int damage, out bool isKilled)
         {
-            var newWayPoint = _wayPointsDistributor.GetPointWithIndex(TargetWayPoint.PointID + 1);
+            _currentHealth -= damage;
+            isKilled = _currentHealth <= 0;
+            if (isKilled)
+            {
+                KillEnemy();
+            }
+        }
+
+        private void DoDamage()
+        {
             
-            if (newWayPoint is NullWayPoint)
-            {
-                EndedMovement?.Invoke();
-                EndedMovement = null;
-            }
-            else
-            {
-                TargetWayPoint = newWayPoint;
-            }
+        }
+
+        private void KillEnemy()
+        {
+            Killed?.Invoke();
+            Killed = null;
+            MovementData.EndMovement();
+            MessageBroker.Default.Publish(new EnemyKilledMessage(EnemyData.GoldReward));
         }
     }
 }

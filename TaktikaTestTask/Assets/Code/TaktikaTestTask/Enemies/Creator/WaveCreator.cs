@@ -1,5 +1,5 @@
 using System;
-using Code.TaktikaTestTask.Enemies.Mover;
+using Code.TaktikaTestTask.Enemies.Movement;
 using Code.TaktikaTestTask.GameSettings;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -34,6 +34,7 @@ namespace Code.TaktikaTestTask.Enemies.Creator
                     cancellationToken: this.GetCancellationTokenOnDestroy());
             }
             _currentWaveNumber++;
+            enemyCreator.RecalculateEnemyDataForNewWave();
         }
 
         private int CalculateWaveCount(EnemiesSpawnSettings settings)

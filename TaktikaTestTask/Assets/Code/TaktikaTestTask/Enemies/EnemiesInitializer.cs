@@ -1,5 +1,5 @@
 using Code.TaktikaTestTask.Enemies.Creator;
-using Code.TaktikaTestTask.Enemies.Mover;
+using Code.TaktikaTestTask.Enemies.Movement;
 using Code.TaktikaTestTask.GameSettings;
 using Code.TaktikaTestTask.WayPoints;
 using UnityEngine;
@@ -11,6 +11,7 @@ namespace Code.TaktikaTestTask.Enemies
     [RequireComponent(typeof(EnemyCreator), typeof(WaveCreator))]
     public class EnemiesInitializer : MonoBehaviour
     {
+        [SerializeField] private EnemySettings enemySettings;
         [SerializeField] private EnemiesSpawnSettings spawnSettings;
         [SerializeField] private SpawnPoint spawnPoint;
 
@@ -21,7 +22,7 @@ namespace Code.TaktikaTestTask.Enemies
             var enemyCreator = GetComponent<EnemyCreator>();
             var waveCreator = GetComponent<WaveCreator>();
             
-            enemyCreator.Initialize(wayPointsDistributor, spawnSettings);
+            enemyCreator.Initialize(wayPointsDistributor, enemySettings, spawnSettings);
             waveCreator.Initialize(spawnPoint, enemyCreator, enemyMover, spawnSettings);
         }
     }
