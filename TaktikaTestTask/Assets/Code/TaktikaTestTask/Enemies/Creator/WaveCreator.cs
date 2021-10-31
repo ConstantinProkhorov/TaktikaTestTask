@@ -1,9 +1,11 @@
 using System;
 using Code.TaktikaTestTask.Enemies.Movement;
 using Code.TaktikaTestTask.GameSettings;
+using Code.TaktikaTestTask.Hero.Messages;
 using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Code.TaktikaTestTask.Enemies.Creator
 {
@@ -11,15 +13,20 @@ namespace Code.TaktikaTestTask.Enemies.Creator
     public class WaveCreator : MonoBehaviour
     {
         private SpawnPoint _spawnPoint;
-        private int _currentWaveNumber;
+        private int _currentWaveNumber = 1;
         
         public void Initialize(SpawnPoint spawnPoint, EnemyCreator enemyCreator, EnemyMover enemyMover, 
             EnemiesSpawnSettings settings)
         {
+            var disposable = new CompositeDisposable();
             _spawnPoint = spawnPoint;
-            
             Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(settings.IntervalBetweenWaves))
                 .Subscribe(_ => SpawnWave(enemyCreator, enemyMover, settings))
+                .AddTo(disposable);
+
+            MessageBroker.Default.Receive<HeroKilledMessage>()
+                .Take(1)
+                .Subscribe(_ => disposable.Clear())
                 .AddTo(this);
         }
 
@@ -39,7 +46,9 @@ namespace Code.TaktikaTestTask.Enemies.Creator
 
         private int CalculateWaveCount(EnemiesSpawnSettings settings)
         {
-            return _currentWaveNumber + settings.AdditionalEnemiesPerWave;
+            var waveMax = _currentWaveNumber + settings.AdditionalEnemiesPerWave;
+            var result = Random.Range(_currentWaveNumber, waveMax + 1);
+            return result;
         }
     }
 }

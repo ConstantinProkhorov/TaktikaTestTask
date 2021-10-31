@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9da7244eb2f4f539ec316e68fb2bad9, type: 3}
   m_Name: WaveSpawnSettings
   m_EditorClassIdentifier: 
-  intervalBetweenWaves: 10
+  intervalBetweenWaves: 5
   intervalBetweenEnemies: 0.2
   additionalEnemiesPerWave: 1
   enemyMovementDataPrefab: {fileID: 7007737122823090432, guid: 29c687d4dbdd2dc4a98bd552717a1a77,

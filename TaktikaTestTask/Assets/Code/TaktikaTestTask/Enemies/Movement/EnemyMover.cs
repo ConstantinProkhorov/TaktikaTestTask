@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.TaktikaTestTask.Hero.Messages;
 using UniRx;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Code.TaktikaTestTask.Enemies.Movement
 
         public EnemyMover(Component obj)
         {
+            var disposable = new CompositeDisposable();
             Observable.EveryUpdate()
                 .Subscribe(_ =>
                 {
@@ -18,6 +20,11 @@ namespace Code.TaktikaTestTask.Enemies.Movement
                         MoveEnemy(_enemiesToMove[i]);
                     }
                 })
+                .AddTo(disposable);
+            
+            MessageBroker.Default.Receive<HeroKilledMessage>()
+                .Take(1)
+                .Subscribe(_ => disposable.Clear())
                 .AddTo(obj);
         }
 

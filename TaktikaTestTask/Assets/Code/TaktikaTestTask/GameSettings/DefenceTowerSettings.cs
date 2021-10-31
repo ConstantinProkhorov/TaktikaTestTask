@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Code.TaktikaTestTask.GameSettings
 {
-    [CreateAssetMenu(fileName = "DefenceTowerSettings", menuName = "TaktikaTestTask/DefenceTowerSettings", order = 3)]
+    [CreateAssetMenu(fileName = "DefenceTowerSettings", menuName = "TaktikaTestTask/DefenceTowerSettings", order = 2)]
     public class DefenceTowerSettings : ScriptableObject
     {
         [SerializeField] private int initialDamage = 1;

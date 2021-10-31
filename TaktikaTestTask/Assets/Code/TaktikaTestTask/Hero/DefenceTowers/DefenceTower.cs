@@ -14,5 +14,10 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
             var defaultTowerData = DefenceTowerData.DefaultFromSettings(settings);
             GetComponent<DefenceTowerShooter>().Initialize(defaultTowerData);
         }
+
+        public void Upgrade()
+        {
+            
+        }
     }
 }
