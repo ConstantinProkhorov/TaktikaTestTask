@@ -19,7 +19,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9caeefb0-4933-4d5c-a20d-12ea53995d29" name="Default Changelist" comment="" />
+    <list default="true" id="9caeefb0-4933-4d5c-a20d-12ea53995d29" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TaktikaTestTask/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TaktikaTestTask/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TaktikaTestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TaktikaTestTask/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/NewBehaviourScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/NewBehaviourScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/02/029a0d8dae01a2515abb6395c699763c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7b/7bd1980202684f1b466cafb4dd7cf693" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b9/b95cd27eab286eb0ffb2a35e7497948c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/4c969a-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/4c969a-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/cc2798-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/cc2798-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,11 +54,34 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/NewBehaviourScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/WayPoints/Messages/WayPointMessage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemy_TEMP.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Emenies/Mover/EnemyMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/WayPoints/Messages/NullWayPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/WayPoints/NullWayPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Pool/EnemiesPool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Pool/Pool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Utility/DisableRenderersOnStart.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Utility/DisableRenderersOnAwake.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/Creator/SpawnPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/WayPoints/WayPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/WayPoints/WayPointsDistributor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/GameSettings/WaveSpawningSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/GameSettings/WaveSpawnSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/GameSettings/EnemiesSpawnSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/Creator/WaveCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/Creator/EnemyCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/Mover/EnemyMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/TaktikaTestTask/Enemies/EnemiesInitializer.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="20GqCj4Ilwnju8wE1QlDm2TOCpe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,6 +90,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -76,6 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1635681151249</updated>
       <workItem from="1635681174451" duration="998000" />
+      <workItem from="1635682322417" duration="15054000" />
     </task>
     <servers />
   </component>
@@ -94,8 +141,23 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="788" y="193" key="RiderGenerateDialog" timestamp="1635690892228">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="788" y="193" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1635690892228" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1635691307582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1635691307582" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1635696122104">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1635696122104" />
   </component>
 </project>
