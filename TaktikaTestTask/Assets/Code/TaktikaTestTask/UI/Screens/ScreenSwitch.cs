@@ -38,7 +38,6 @@ namespace Code.TaktikaTestTask.UI.Screens
 
         private void TurnAllScreensOff()
         {
-            print(3);
             gameScreen.SetActive(false);
             defeatScreen.SetActive(false);
         }

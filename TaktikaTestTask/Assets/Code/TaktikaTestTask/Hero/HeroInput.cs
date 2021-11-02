@@ -1,3 +1,4 @@
+using Code.TaktikaTestTask.Hero.DefenceTowers;
 using Code.TaktikaTestTask.Utility;
 using UniRx;
 using UniRx.Triggers;
@@ -32,7 +33,9 @@ namespace Code.TaktikaTestTask.Hero
             var hits = Physics.RaycastNonAlloc(ray, results, float.MaxValue, layerMask);
             if (hits > 0)
             {
-                print($"Hitting {results[0].collider.gameObject.name}");
+                var defenceTower = results[0].collider.GetComponent<DefenceTower>();
+                if (!defenceTower) return;
+                defenceTower.Upgrade();
             }
         }
     }

@@ -38,7 +38,6 @@ namespace Code.TaktikaTestTask.Enemies
         {
             _enemyData = enemyData;
             _currentHealth = enemyData.Health;
-            print(enemyData);
             MovementData.Initialize(pointsDistributor, deviation);
         }
 

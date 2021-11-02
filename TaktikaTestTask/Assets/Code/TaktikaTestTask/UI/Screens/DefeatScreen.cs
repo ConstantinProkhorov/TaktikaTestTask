@@ -1,4 +1,5 @@
 using Code.TaktikaTestTask.Hero.Messages;
+using Code.TaktikaTestTask.Utility;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -14,13 +15,18 @@ namespace Code.TaktikaTestTask.UI.Screens
         private void Awake()
         {
             Bind();
+            
+            restartGameButton.onClick.AddListener(SceneReload.Reload);
+        }
+
+        private void OnDestroy()
+        {
+            restartGameButton.onClick.RemoveAllListeners();
         }
 
         private void Bind()
         {
-            print("binding");
             MessageBroker.Default.Receive<TotalEnemiesKilledMessage>()
-                .Do(_ => print(2))
                 .Subscribe(m => enemiesKilledText.text = m.Count.ToString())
                 .AddTo(this);
         }

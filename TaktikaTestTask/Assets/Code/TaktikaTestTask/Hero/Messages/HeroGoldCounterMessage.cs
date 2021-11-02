@@ -4,11 +4,13 @@ namespace Code.TaktikaTestTask.Hero.Messages
 {
     public readonly struct HeroGoldCounterMessage
     {
-        public HeroGoldCounterMessage(ReactiveProperty<int> gold)
+        public HeroGoldCounterMessage(HeroGoldCounter counter)
         {
-            Gold = gold;
+            GoldCounter = counter;
+            Gold = counter.Gold;
         }
 
+        public HeroGoldCounter GoldCounter { get; }
         public ReactiveProperty<int> Gold { get; }
     }
 }

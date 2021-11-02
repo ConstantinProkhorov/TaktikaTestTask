@@ -2,7 +2,7 @@ using Code.TaktikaTestTask.GameSettings;
 
 namespace Code.TaktikaTestTask.Enemies
 {
-    public class EnemyData
+    public readonly struct EnemyData
     {
         public int Health { get; }
         public int Damage { get; }

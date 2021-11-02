@@ -13,6 +13,8 @@ namespace Code.TaktikaTestTask.UI
         [SerializeField] private float updateAnimationStrength = 1.2f;
         [SerializeField] private float updateAnimationDuration = 0.3f;
         [SerializeField] private Ease updateAnimationEase = Ease.OutElastic;
+
+        private Vector3 _textInitialScale;
         
         private void Awake()
         {
@@ -21,6 +23,7 @@ namespace Code.TaktikaTestTask.UI
 
         private void Bind(TMP_Text text)
         {
+            _textInitialScale = text.rectTransform.localScale;
             MessageBroker.Default.Receive<HeroGoldCounterMessage>()
                 .Take(1)
                 .Subscribe(m =>
@@ -38,6 +41,7 @@ namespace Code.TaktikaTestTask.UI
             text.transform
                 .DOPunchScale(Vector3.one * updateAnimationStrength, updateAnimationDuration)
                 .SetEase(updateAnimationEase)
+                .OnComplete(() => text.rectTransform.localScale = _textInitialScale)
                 .Play();
         }
     }

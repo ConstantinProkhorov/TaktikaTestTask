@@ -17,7 +17,17 @@ namespace Code.TaktikaTestTask.Hero
 
         private void Start()
         {
-            MessageBroker.Default.Publish(new HeroGoldCounterMessage(Gold));
+            MessageBroker.Default.Publish(new HeroGoldCounterMessage(this));
+        }
+
+        public bool TryBuy(int price)
+        {
+            if (Gold.Value >= price)
+            {
+                Gold.Value -= price;
+                return true;
+            }
+            return false;
         }
 
         private void Bind()

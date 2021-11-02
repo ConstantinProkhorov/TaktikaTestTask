@@ -12,7 +12,7 @@ namespace Code.TaktikaTestTask.Utility
             Bind();
         }
 
-        public void ReloadScene()
+        public static void Reload()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -21,7 +21,7 @@ namespace Code.TaktikaTestTask.Utility
         {
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKeyDown(KeyCode.R))
-                .Subscribe(_ => ReloadScene())
+                .Subscribe(_ => Reload())
                 .AddTo(this);
         }
     }
