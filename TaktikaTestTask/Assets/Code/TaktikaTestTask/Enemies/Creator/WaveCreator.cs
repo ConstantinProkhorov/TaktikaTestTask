@@ -12,22 +12,29 @@ namespace Code.TaktikaTestTask.Enemies.Creator
     [DisallowMultipleComponent]
     public class WaveCreator : MonoBehaviour
     {
+        private readonly CompositeDisposable _disposable = new CompositeDisposable();
+        
         private SpawnPoint _spawnPoint;
         private int _currentWaveNumber = 1;
-        
+
+        private void OnDestroy()
+        {
+            _disposable.Dispose();
+        }
+
         public void Initialize(SpawnPoint spawnPoint, EnemyCreator enemyCreator, EnemyMover enemyMover, 
             EnemiesSpawnSettings settings)
         {
-            var disposable = new CompositeDisposable();
+            _disposable.Clear();
             _spawnPoint = spawnPoint;
             Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(settings.IntervalBetweenWaves))
                 .Subscribe(_ => SpawnWave(enemyCreator, enemyMover, settings))
-                .AddTo(disposable);
+                .AddTo(_disposable);
 
             MessageBroker.Default.Receive<HeroKilledMessage>()
                 .Take(1)
-                .Subscribe(_ => disposable.Clear())
-                .AddTo(this);
+                .Subscribe(_ => _disposable.Clear())
+                .AddTo(_disposable);
         }
 
         private async void SpawnWave(EnemyCreator enemyCreator, EnemyMover enemyMover, EnemiesSpawnSettings settings)

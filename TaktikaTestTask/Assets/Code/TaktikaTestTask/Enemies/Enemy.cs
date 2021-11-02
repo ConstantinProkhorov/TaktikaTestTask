@@ -16,8 +16,8 @@ namespace Code.TaktikaTestTask.Enemies
         
         private int _currentHealth;
         private Renderer _renderer;
+        private EnemyData _enemyData;
         
-        public EnemyData EnemyData { get; private set; }
         public EnemyMovementData MovementData { get; private set; }
         
         public event Action Killed = delegate { };
@@ -26,12 +26,17 @@ namespace Code.TaktikaTestTask.Enemies
         {
             _renderer = GetComponentInChildren<Renderer>();
             MovementData = GetComponent<EnemyMovementData>();
-            MovementData.EndedMovement += DoDamage;
+            MovementData.ReachedFinalPoint += DoDamage;
+        }
+
+        private void OnDestroy()
+        {
+            MovementData.ReachedFinalPoint -= DoDamage;
         }
 
         public void Initialize(EnemyData enemyData, WayPointsDistributor pointsDistributor, Vector3 deviation)
         {
-            EnemyData = enemyData;
+            _enemyData = enemyData;
             _currentHealth = enemyData.Health;
             print(enemyData);
             MovementData.Initialize(pointsDistributor, deviation);
@@ -44,7 +49,7 @@ namespace Code.TaktikaTestTask.Enemies
             if (isKilled)
             {
                 KillEnemy();
-                MessageBroker.Default.Publish(new EnemyKilledMessage(EnemyData.GoldReward));
+                MessageBroker.Default.Publish(new EnemyKilledMessage(_enemyData.GoldReward));
             }
         }
 
@@ -54,9 +59,8 @@ namespace Code.TaktikaTestTask.Enemies
             _renderer.material.DOColor(Color.red, deathEffectDuration)
                 .OnComplete(() =>
                 {
-                    print("innnn");
                     KillEnemy();
-                    MessageBroker.Default.Publish(new EnemyDidDamageMessage(EnemyData.Damage));
+                    MessageBroker.Default.Publish(new EnemyDidDamageMessage(_enemyData.Damage));
                     _renderer.material.color = initialColor;
                 })
                 .Play();

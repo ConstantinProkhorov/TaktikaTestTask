@@ -17,6 +17,7 @@ namespace Code.TaktikaTestTask.Enemies.Movement
         public float Speed => speed;
         
         public event Action EndedMovement = delegate { };
+        public event Action ReachedFinalPoint = delegate { };
 
         private void OnDestroy()
         {
@@ -36,6 +37,7 @@ namespace Code.TaktikaTestTask.Enemies.Movement
             
             if (newWayPoint is NullWayPoint)
             {
+                ReachedFinalPoint?.Invoke();
                 EndMovement();
             }
             else

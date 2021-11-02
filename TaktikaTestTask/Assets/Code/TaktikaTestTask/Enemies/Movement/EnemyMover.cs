@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Code.TaktikaTestTask.Hero.Messages;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace Code.TaktikaTestTask.Enemies.Movement
@@ -25,6 +26,10 @@ namespace Code.TaktikaTestTask.Enemies.Movement
             MessageBroker.Default.Receive<HeroKilledMessage>()
                 .Take(1)
                 .Subscribe(_ => disposable.Clear())
+                .AddTo(obj);
+
+            obj.OnDisableAsObservable()
+                .Subscribe(_ => disposable.Dispose())
                 .AddTo(obj);
         }
 

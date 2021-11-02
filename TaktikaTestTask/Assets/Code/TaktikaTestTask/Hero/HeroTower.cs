@@ -11,16 +11,16 @@ namespace Code.TaktikaTestTask.Hero
     [DisallowMultipleComponent]
     public class HeroTower : MonoBehaviour
     {
+        private readonly ReactiveProperty<int> _currentHealth = new ReactiveProperty<int>();
+        
         [SerializeField] private HeroSettings settings;
         [SerializeField] private float debrisPushForce = 10f;
-
-        public readonly ReactiveProperty<int> CurrentHealth = new ReactiveProperty<int>();
 
         private List<Rigidbody> _parts = new List<Rigidbody>();
 
         private void Awake()
         {
-            CurrentHealth.Value = settings.StartingHealth;
+            _currentHealth.Value = settings.StartingHealth;
             _parts = GetComponentsInChildren<Rigidbody>().ToList();
             Bind();
         }
@@ -28,16 +28,13 @@ namespace Code.TaktikaTestTask.Hero
         private void Bind()
         {
             MessageBroker.Default.Receive<EnemyDidDamageMessage>()
-                .Select(m =>
-                {
-                    print("ffff");
-                    return CurrentHealth.Value -= m.Damage;
-                })
+                .Select(m => _currentHealth.Value -= m.Damage)
                 .Where(h => h <= 0)
+                .Take(1)
                 .Subscribe(_ => EndGame())
                 .AddTo(this);
             
-            MessageBroker.Default.Publish(new HeroHealthCounterMessage(CurrentHealth));
+            MessageBroker.Default.Publish(new HeroHealthCounterMessage(_currentHealth));
         }
 
         private void EndGame()

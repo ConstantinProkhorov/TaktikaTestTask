@@ -34,6 +34,7 @@ namespace Code.TaktikaTestTask.UI
         {
             slider.value = newValue;
             if (!text) return;
+            newValue = Mathf.Clamp(newValue, 0, int.MaxValue);
             text.text = newValue.ToString();
         }
     }

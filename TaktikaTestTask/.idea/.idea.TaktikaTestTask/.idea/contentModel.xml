@@ -25,6 +25,7 @@
                 <e p="EnemyMover.cs" t="Include" />
               </e>
             </e>
+            <e p="GameEventsTracker.cs" t="Include" />
             <e p="GameSettings" t="Include">
               <e p="DefenceTowerSettings.cs" t="Include" />
               <e p="EnemiesSpawnSettings.cs" t="Include" />
@@ -37,6 +38,7 @@
                 <e p="DefenceTowerData.cs" t="Include" />
                 <e p="DefenceTowerShooter.cs" t="Include" />
               </e>
+              <e p="HeroEnemiesKilledCounter.cs" t="Include" />
               <e p="HeroGoldCounter.cs" t="Include" />
               <e p="HeroInput.cs" t="Include" />
               <e p="HeroTower.cs" t="Include" />
@@ -44,6 +46,7 @@
                 <e p="HeroGoldCounterMessage.cs" t="Include" />
                 <e p="HeroHealthCounterMessage.cs" t="Include" />
                 <e p="HeroKilledMessage.cs" t="Include" />
+                <e p="TotalEnemiesKilledMessage.cs" t="Include" />
               </e>
             </e>
             <e p="Pool" t="Include">
@@ -52,10 +55,19 @@
             <e p="UI" t="Include">
               <e p="GoldTextUpdater.cs" t="Include" />
               <e p="HeroHealthSliderUpdater.cs" t="Include" />
+              <e p="Messages" t="Include">
+                <e p="SwitchScreenMessage.cs" t="Include" />
+              </e>
+              <e p="Screens" t="Include">
+                <e p="DefeatScreen.cs" t="Include" />
+                <e p="ScreenName.cs" t="Include" />
+                <e p="ScreenSwitch.cs" t="Include" />
+              </e>
             </e>
             <e p="Utility" t="Include">
               <e p="DisableRenderersOnAwake.cs" t="Include" />
               <e p="Layers.cs" t="Include" />
+              <e p="SceneReload.cs" t="Include" />
             </e>
             <e p="WayPoints" t="Include">
               <e p="IWayPoint.cs" t="Include" />

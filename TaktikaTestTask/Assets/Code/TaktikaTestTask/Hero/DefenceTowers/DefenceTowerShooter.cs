@@ -1,5 +1,6 @@
 using System;
 using Code.TaktikaTestTask.Enemies;
+using Code.TaktikaTestTask.Hero.Messages;
 using Code.TaktikaTestTask.Utility;
 using Cysharp.Threading.Tasks;
 using UniRx;
@@ -11,6 +12,8 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
     [RequireComponent(typeof(LineRenderer))]
     public class DefenceTowerShooter : MonoBehaviour
     {
+        private readonly CompositeDisposable _disposable = new CompositeDisposable();
+        
         [SerializeField] private double shotEffectShowTime = 0.2;
         
         private LineRenderer _lineRenderer;
@@ -21,10 +24,20 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
             _lineRenderer = GetComponent<LineRenderer>();
         }
 
+        private void OnDestroy()
+        {
+            _disposable.Dispose();
+        }
+
         public void Initialize(DefenceTowerData data)
         {
+            _disposable.Clear();
             Observable.Interval(TimeSpan.FromSeconds(data.DelayBetweenShots))
                 .Subscribe(_ => Fire(data))
+                .AddTo(_disposable);
+
+            MessageBroker.Default.Receive<HeroKilledMessage>()
+                .Subscribe(_ => _disposable.Clear())
                 .AddTo(this);
         }
 
