@@ -13,6 +13,8 @@ namespace Code.TaktikaTestTask.Pool
         private readonly T _prefab;
         private readonly Transform _parent;
 
+        private int _index;
+
         public Pool(int startingSize, T prefab, Transform parent = null)
         {
             _prefab = prefab;
@@ -53,6 +55,7 @@ namespace Code.TaktikaTestTask.Pool
         private void CreatePoolObject()
         {
             var newPoolObject = Object.Instantiate(_prefab, _parent, true);
+            newPoolObject.gameObject.name = $"{newPoolObject.gameObject.name}: {_index++}"; 
             newPoolObject.gameObject.SetActive(false);
             _pool.Push(newPoolObject);
         }

@@ -1,6 +1,7 @@
 using Code.TaktikaTestTask.GameSettings;
 using Code.TaktikaTestTask.Hero.Messages;
 using DG.Tweening;
+using TMPro;
 using UniRx;
 using UnityEngine;
 
@@ -18,13 +19,18 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
         private DefenceTowerData _currentTowerData;
         private DefenceTowerShooter _defenceTowerShooter;
         private HeroGoldCounter _heroGoldCounter;
+        private TextMeshPro _upgradePriceText;
 
         private void Awake()
         {
             _currentTowerData = DefenceTowerData.DefaultFromSettings(settings);
+            
             _defenceTowerShooter = GetComponent<DefenceTowerShooter>();
             _defenceTowerShooter.Initialize(_currentTowerData);
             
+            _upgradePriceText = GetComponentInChildren<TextMeshPro>();
+            _upgradePriceText.text = _currentTowerData.UpgradeCost.ToString();
+
             Bind();
         }
 
@@ -42,6 +48,7 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
                 PlayUpgradeEffect();
                 _currentTowerData = CalculateNewDefenceTowerData();
                 _defenceTowerShooter.Initialize(_currentTowerData);
+                _upgradePriceText.text = _currentTowerData.UpgradeCost.ToString();
             }
         }
 

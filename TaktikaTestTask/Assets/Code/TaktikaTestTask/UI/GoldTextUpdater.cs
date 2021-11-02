@@ -15,6 +15,7 @@ namespace Code.TaktikaTestTask.UI
         [SerializeField] private Ease updateAnimationEase = Ease.OutElastic;
 
         private Vector3 _textInitialScale;
+        private Tweener _tween;
         
         private void Awake()
         {
@@ -38,7 +39,8 @@ namespace Code.TaktikaTestTask.UI
         private void UpdateDisplay(int newValue, TMP_Text text)
         {
             text.text = newValue.ToString();
-            text.transform
+            if (_tween.IsActive() && _tween.IsPlaying()) return;
+            _tween = text.transform
                 .DOPunchScale(Vector3.one * updateAnimationStrength, updateAnimationDuration)
                 .SetEase(updateAnimationEase)
                 .OnComplete(() => text.rectTransform.localScale = _textInitialScale)

@@ -43,7 +43,7 @@ namespace Code.TaktikaTestTask.Hero.DefenceTowers
 
         private Enemy SelectTarget()
         {
-            if (_currentTarget) return _currentTarget;
+            if (_currentTarget && _currentTarget.gameObject.activeInHierarchy) return _currentTarget;
 
             Collider[] hitColliders = new Collider[1];
             const int layerMask = 1 << Layers.EnemyLayer;

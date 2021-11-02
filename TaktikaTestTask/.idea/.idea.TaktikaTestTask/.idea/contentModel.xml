@@ -25,7 +25,9 @@
                 <e p="EnemyMover.cs" t="Include" />
               </e>
             </e>
-            <e p="GameEventsTracker.cs" t="Include" />
+            <e p="GameEvents" t="Include">
+              <e p="GameEventsTracker.cs" t="Include" />
+            </e>
             <e p="GameSettings" t="Include">
               <e p="DefenceTowerSettings.cs" t="Include" />
               <e p="EnemiesSpawnSettings.cs" t="Include" />
